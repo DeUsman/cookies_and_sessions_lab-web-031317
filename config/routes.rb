@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
+  get '/' => 'products#index', as: 'products'
+  post '/add' => 'products#add', as: 'add_product'
+  delete '/:product', to: 'products#destroy', as: 'delete_item'
+ # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

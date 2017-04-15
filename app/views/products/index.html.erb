@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Welcome to Heaven!</h1>
+<div>
+<h1>Displaying your Cart</h1>
+There is a total of <%= @cart.count %> items in your cart<br><br>
+<% @cart.each do |item| %>
+
+	<%=  item %>
+	<%= link_to "Remove", item, method: :delete, data: {confirm: "Really?"}%><br>
+<% end %><br>
+
+</div>
+<p>=========================================</p>
+<%= flash[:notice] %><br><br>
+<%= form_tag (add_product_path) do %>
+	<%= label_tag :product%>
+	<%= text_field_tag :product, nil, placeholder:'Enter Text Here'%>
+	<%= submit_tag "add to cart" %>
+	<% end %>
+</body>
+</html>
